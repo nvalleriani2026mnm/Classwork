@@ -1,11 +1,13 @@
 
 public class mycCharacter {
 
+	//These are my class attributes that have different values based on what class you choose in the main method
 	int health;
 	int speed; 
 	int strength;
 	String name;
 	
+	//These three classes have different values for each of their attributes like health, speed and strength
 	public mycCharacter(String classSelection, String userName) {
 		
 		if(classSelection.equals("Warrior")) {
@@ -29,6 +31,7 @@ public class mycCharacter {
 		
 	}
 	
+	//This is my method which contains a simple formula for calculating the damage done to the player
 	public void takeDamage(int damageMeter) {
 		
 		health -= damageMeter;
@@ -37,7 +40,4 @@ public class mycCharacter {
 			health = 0;
 		}
 	}
-	
-	
-	
-	
+}
