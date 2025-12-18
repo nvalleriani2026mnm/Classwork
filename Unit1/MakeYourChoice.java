@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class MakeYourChoice {
 
+	//I have my scanner being instantiated here alongside all of my other boolean variables as well. I also have an object player from my
+	//character class.
 	static Scanner inputReader = new Scanner(System.in);
 	static boolean isHorseOkay = true;
 	static boolean isInfected = false;
@@ -11,11 +13,13 @@ public class MakeYourChoice {
 	
 	public static void main(String[] args) {
 		
-		
+		//Starts the game
 		gameStart();
 
 	}
 
+	//This method starts the game off by asking the player to choose their class (each with different attributes), and then it will ask
+	//what name the user wants to be referred to as. Then it'll greet the player and then start the game.
 	public static void gameStart() {
 		
 		System.out.println("Please choose your class below, think carefully before choosing.");
@@ -76,6 +80,7 @@ public class MakeYourChoice {
 		
 	}
 	
+	//Essentially the prologue to my story, it then asks the player to put in a letter to continue the narration.
 	public static void startSequence(String userName, String classSelection) {
 		System.out.println("Somewhere in Nevada... in the year 1899..");
 		System.out.println("A lab experimenting on a potential cure for Tuberculosis has accidently created and released a virus that");
@@ -85,6 +90,8 @@ public class MakeYourChoice {
 		System.out.println("Input any letter to start.");
 		String startChoose = inputReader.nextLine();
 		
+		//A boolean created to help figure out if the user actually put in ANY string value into the scanner input to continue
+		//the game.
 		boolean continueNow = false;
 		if(startChoose != null) {
 			continueNow = true;
@@ -118,6 +125,8 @@ public class MakeYourChoice {
 	  }
 	}
 	
+	//The first night which will loop the question of asking the user to make a choice if they put in an invalid input. It also will minus
+	//health from the player health attribute if you say Yes as a Warrior for example. It'll change the boolean attributes based on your decision.
 	public static void firstNight(String userName, String classSelection) {
 		System.out.println("");
 		System.out.println("=============================================================================================================");
@@ -162,11 +171,12 @@ public class MakeYourChoice {
 			isInfected = false;
 			validAnswer = true;
 		}
+		//This makes sure that if the user puts in something wrong, this will show up to reprompt them.
 		else {
 			System.out.println("That's not an answer, try again.");
 			validAnswer = false;
 		}
-		}
+	}
 		
 		System.out.println("Input a letter to continue.");
 		String startChoose3 = inputReader.nextLine();
@@ -184,6 +194,9 @@ public class MakeYourChoice {
 		}
 	}
 	
+	//This is the method for the second night which runs almost identical to the first night (same as the rest too), the only difference
+	//being the question that asks the user to pick an option. Depending on your answer it will change the boolean attributes that affect
+	//how the game goes on.
 	public static void secondNight(String userName, String classSelection) {
 		System.out.println("");
 		System.out.println("=============================================================================================================");
@@ -232,7 +245,7 @@ public class MakeYourChoice {
 			System.out.println("That's not an answer, try again.");
 			validAnswer = false;
 		}
-		}
+	}
 	
 		System.out.println("Input a letter to continue.");
 		String startChoose3 = inputReader.nextLine();
@@ -250,6 +263,8 @@ public class MakeYourChoice {
 		}
 	}
 	
+	//This is the third night which is still the same as the last one but with a different question. This is the method where there are 2 of 4
+	//endings (the other two are incomplete), you can either get the zombie ending or horse ending based on your past choices. 
 	public static void thirdNight(String userName, String classSelection) {
 		System.out.println("");
 		System.out.println("=============================================================================================================");
@@ -301,7 +316,7 @@ public class MakeYourChoice {
 			System.out.println("That's not an answer, try again.");
 			validAnswer = false;
 		}
-		}
+	}
 		
 		System.out.println("Input a letter to continue.");
 		String startChoose3 = inputReader.nextLine();
@@ -320,6 +335,9 @@ public class MakeYourChoice {
 		
 	}
 	
+	//This is the final night, which is incomplete but would have prompted the user to say Yes or No to a question. This is also where you
+	//can get the horse ending if you didn't feed them at the beginning of the game. The if statements are supposed to be what happens when
+	//you choose one of those options.
 	public static void fourthNight(String userName, String classSelection) {
 		if(isHorseOkay == false) {
 		System.out.println("Just when you thought you were going to make it to the end, something happened. It turns out your horses suddenly");
@@ -364,13 +382,13 @@ public class MakeYourChoice {
 			System.out.println("That's not an answer, try again.");
 			validAnswer = false;
 		}
-		}
-	}
+	  }
+    }
 	
+	//This method is called when you get an ending, it doesn't do anything except run itself and stop the game.
 	public static int endGame() {
 		return -1;
 	}
 }
-
 
 
