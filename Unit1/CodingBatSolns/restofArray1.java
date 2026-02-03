@@ -109,7 +109,38 @@ public int[] plusTwo(int[] a, int[] b) {
   return bothAB;
 }
 
-//
+//swapEnds
+public int[] swapEnds(int[] nums) {
+  int tempNum = nums[0];
+  if(nums.length > 1) {
+    nums[0] = nums[nums.length-1];
+    nums[nums.length-1] = tempNum;
+    return nums;
+  }
+  else {
+    return nums;
+  }
+}
+
+//midThree
+public int[] midThree(int[] nums) {
+   int b = nums.length-1;
+  int midNums[] = new int[3];
+  for(int a = 0; a < nums.length; a++) {
+    if(b - a == 2) {
+      midNums[0] = nums[a];
+      midNums[1] = nums[a+1];
+      midNums[2] = nums[b];
+    }
+    else {
+      b -= 1;
+    }
+  }
+  return midNums;
+}
+
+//maxTriple
+
 
 
 
