@@ -190,7 +190,48 @@ public boolean unlucky1(int[] nums) {
   }
 }
 
-//makeTwo
+//make2
+public int[] make2(int[] a, int[] b) {
+  int copyArr[] = new int[2];
+  if(a.length >= 2) {
+    copyArr[0] = a[0];
+    copyArr[1] = a[1];
+    return copyArr;
+  }
+  else if(a.length == 1) {
+    copyArr[0] = a[0];
+    copyArr[1] = b[0];
+    return copyArr;
+  }
+  else if(a.length == 0) {
+    copyArr[0] = b[0];
+    copyArr[1] = b[1];
+    return copyArr;
+  }
+  return copyArr;
+}
 
-
+//front11
+public int[] front11(int[] a, int[] b) {
+  int copyArr[] = new int[2];
+  int copyArr2[] = new int[1];
+  int empty[] = new int[0];
+  if(a.length > 0 && b.length > 0) {
+    copyArr[0] = a[0];
+    copyArr[1] = b[0];
+    return copyArr;
+  }
+  else if(a.length == 0 && b.length > 0) {
+    copyArr2[0] = b[0];
+    return copyArr2;
+  }
+  else if(a.length > 0 && b.length == 0) {
+    copyArr2[0] = a[0];
+    return copyArr2;
+  }
+  else if(a.length == 0 && b.length == 0) {
+    return empty;
+  }
+  return empty;
+}
 
