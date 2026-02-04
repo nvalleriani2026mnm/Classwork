@@ -138,9 +138,59 @@ public int[] midThree(int[] nums) {
   }
   return midNums;
 }
+//Dude I just realized i could have used nums.length / 2 well at least i got creative right
 
 //maxTriple
+public int maxTriple(int[] nums) {
+  if(nums.length > 1) {
+    if((nums[0] > nums[nums.length/2]) && (nums[0] > nums[nums.length-1])) {
+      return nums[0];
+    }
+    else if((nums[nums.length/2] > nums[0]) && (nums[nums.length/2] > nums[nums.length-1])) {
+      return nums[nums.length/2];
+    }
+    else {
+      return nums[nums.length-1];
+    }
+  }
+  else {
+    return nums[0];
+  }
+}
 
+//frontPiece
+public int[] frontPiece(int[] nums) {
+  int copyArr[] = new int[2];
+  if(nums.length < 2) {
+    return nums;
+  }
+  else {
+    copyArr[0] = nums[0];
+    copyArr[1] = nums[1];
+    return copyArr;
+  }
+}
+
+//unlucky1
+public boolean unlucky1(int[] nums) {
+ if(nums.length > 1) {
+    if(nums[0] == 1 && nums[1] == 3) {
+     return true;
+    }
+    else if(nums[1] == 1 && nums[2] == 3) {
+     return true;
+    }
+    else if(nums[nums.length-2] == 1 && nums[nums.length-1] == 3) {
+     return true;
+   }
+    return false;
+  }
+  else {
+    return false;
+  }
+}
+
+//makeTwo
 
 
 
