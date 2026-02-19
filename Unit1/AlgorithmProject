@@ -1,0 +1,212 @@
+package semester2;
+
+public class algorithmProject {
+
+	public static void main(String[] args) {
+		
+		//This is my array I will be using for all my methods
+		int[] nums = {3,1,6,23,-1,7,89,333,5,5,607,1};
+		int findThis = 1;
+		
+		//These are my method callers
+		theSmallest(nums);
+		theIndexSmallest(nums);
+		theAverage(nums);
+		areTheyEven(nums);
+		twoFives(nums);
+		theThreeSame(nums);
+		showsUp(nums, findThis);
+		backwardsVersion(nums);
+		System.out.print("\n");
+		toTheRight(nums);
+		System.out.print("\n");
+		selectionSorts(nums);
+
+	}
+	
+	public static int theSmallest(int[] nums) {
+		
+		//This assumes the min is the first number
+		int min = nums[0];
+		
+		//This is the formula for finding what my min actually is
+		for(int i = 0; i < nums.length; i++) {
+			if(nums[i] < min) {
+				min = nums[i];
+			}
+		}
+		//This prints it out
+		System.out.println(min);
+		return min;
+	}
+	
+	public static int theIndexSmallest(int[] nums) {
+		
+		//This assumes my min is the first number
+		int min = nums[0];
+		int minLoc = 0;
+		
+		//This is the formula for changing the index to wherever the min is
+		for(int i = 0; i < nums.length; i++) {
+			if(nums[i] < min) {
+				minLoc = i;
+			}
+		}
+		//This prints out the result
+		System.out.println(minLoc);
+		return minLoc;
+	}
+	
+	public static int theAverage(int[] nums) {
+		
+		int average = 0;
+		
+		//This is the formula used for finding the average by getting the total, then dividing by nums length
+		for(int i = 0; i < nums.length-1; i++) {
+			int total = nums[i] + nums[i + 1];
+			average = total/nums.length;
+		}
+		//This prints out the result
+		System.out.println(average);
+		return average;
+	}
+	
+	public static boolean areTheyEven(int[] nums) {
+		
+		boolean ohOk = true;
+		
+		//This is the formula that checks if the remainder isn't 0 and then it knows that there aren't even
+		for(int i = 0; i < nums.length; i++) {
+			if(nums[i]%2 != 0) {
+				ohOk = false;
+			}
+		}
+		//This prints out the result
+		System.out.println(ohOk);
+		return ohOk;
+	}
+	
+	public static int[] twoFives(int[] nums) {
+		
+		//This makes a copy of the array to safely change it
+		int[] copyArr = new int[nums.length];
+		
+		for(int b = 0; b < nums.length; b++) {
+			copyArr[b] = nums[b];
+		}
+		
+		//This checks if there are are consecutive 5s inside the array, and if so it equals them both to 0
+		for(int i = 0; i < nums.length-1; i++) {
+			 if((copyArr[i] == 5) && (copyArr[i+1] == 5)) {
+				 copyArr[i] = 0;
+				 copyArr[i+1] = 0;
+			 }
+		}
+		//This prints the result
+		for(int c = 0; c < nums.length; c++) {
+			System.out.print(copyArr[c] + " ");
+		}
+		return copyArr;
+	}
+	
+	public static boolean theThreeSame(int[] nums) {
+		
+		boolean tripleExists = false;
+		
+		//This has the formula to figure out if there are three numbers that are the same as each other
+		for(int i = 0; i < nums.length-2; i++) {
+			if((nums[i] == nums[i+1]) && (nums[i] == nums[i+2])) {
+				tripleExists = true;
+			}
+			else {
+				
+			}
+		}
+		//This prints the result
+		System.out.print("\n");
+		System.out.println(tripleExists);
+		return tripleExists;
+	}
+	
+	public static int showsUp(int[] nums, int findThis) {
+		
+		int count = 0;
+		
+		//Creates a counter to keep track of how many times a specific number shows up
+		for(int i = 0; i < nums.length; i++) {
+			if(nums[i] == findThis) {
+				count++;
+			}
+		}
+		//Prints result
+		System.out.println(count);
+		return count;
+	}
+	
+	public static int[] backwardsVersion(int[] nums) {
+		
+		//Makes a copy with 0s
+		int[] copyArr = new int[nums.length];
+		
+		//This replaces the number starting from the front of the array with the numbers at the end of the
+		//array
+		for(int i = 0; i < nums.length; i++) {
+			copyArr[i] = nums[nums.length-1-i];
+		}
+		//Prints result
+		for(int b = 0; b < nums.length; b++) {
+			System.out.print(copyArr[b] + " ");
+		}
+		return copyArr;
+	}
+	
+	public static int[] toTheRight(int[] nums) {
+		
+		//Safe copy
+		int[] copyArr = new int[nums.length];
+		
+		//Replaces the number next to i with the number at i
+		for(int i = 0; i  < nums.length-1; i++) {
+			copyArr[i+1] = nums[i];
+		}
+		
+		//This swaps the first and last number
+		copyArr[0] = nums[nums.length-1];
+		
+		for(int b = 0; b < nums.length; b++) {
+			System.out.print(copyArr[b] + " ");
+		}
+		return copyArr;
+	}
+	
+	public static int[] selectionSorts(int[] nums) {
+		
+	//This starts at 0, this is the minimum index to start at when traversing the array. 
+	//I also declare my min and minLoc variables
+		for(int a = 0; a < nums.length-1; a++) {
+			int min = nums[a];
+			int minLoc = a;
+					
+				//This is the nested for loop that starts at the number right next to a since we already know a is our min so we
+				//check the next
+			for(int i = a+1; i < nums.length; i++) {
+				if(min > nums[i]) {
+					min = nums[i];
+					minLoc = i;
+				}
+			}
+			//This is the swapping section, it creates a tempNum for the num at 'a' to refer back to once nums[a] is
+			//changed
+			int temp = nums[minLoc];
+			nums[minLoc] = nums[a];
+			nums[a] = temp;
+		}
+		//This just prints out and then returns the sorted array
+		for(int b = 0; b < nums.length; b++) {
+			System.out.print(nums[b] + " ");
+		}
+		return nums;
+	}
+}
+
+
